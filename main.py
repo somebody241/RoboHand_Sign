@@ -1,27 +1,39 @@
-import speech_recognition as sr
-import pyttsx3 
- 
-r = sr.Recognizer() 
+# import whisper
+# import sounddevice as sd
+# import numpy as np
+#
+# model = whisper.load_model("base")
+# sample_rate = 16000
 
+import keyboard
+import time
 
-def SpeakText(command):
-    engine = pyttsx3.init()
-    engine.say(command)
-    engine.runAndWait()
+running = False
 
+print("SPACE to start")
+print("ESC to exit")
 
-while 1 == 1:
-    try:
-        with sr.Microphone() as source2:
-            r.adjust_for_ambient_noise(source2, duration=0.2)
-            audio2 = r.listen(source2)
-            MyText = r.recognize_ibm(audio2, key="Any", language="en-US")
-            MyText = MyText.lower()
-            print("Did you say ", MyText)
-            SpeakText(MyText)
-            
-    except sr.RequestError as e:
-        print("Could not request results; {0}".format(e))
-        
-    except sr.UnknownValueError:
-        print("unknown error occurred")
+try:
+    while True:
+        if running:
+            # Your code that you want to loop goes here
+            print("Running...")
+            time.sleep(1)  # Simulate some work being done
+        else:
+            time.sleep(0.1)  # Small delay to prevent high CPU usage when idle
+
+        if keyboard.is_pressed('esc'):
+            print("Exiting program.")
+            break
+except KeyboardInterrupt:
+    print("Program interrupted.")
+finally:
+    keyboard.unhook_all()
+
+# duration = 5
+# print("Recording...")
+# audio = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype=np.float32)
+# sd.wait()
+#
+# result = model.transcribe(audio.flatten(), language="bg")
+# print("Transcription:", result["text"])
