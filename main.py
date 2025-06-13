@@ -1,16 +1,17 @@
 # import whisper
 # import sounddevice as sd
 # import numpy as np
-#
+
 # model = whisper.load_model("base")
 # sample_rate = 16000
-# duration = 5
-# print("Recording...")
+#
+#
+# while True:
+#
 # audio = sd.rec(int(duration * sample_rate), samplerate=sample_rate, channels=1, dtype=np.float32)
 # sd.wait()
 #
 # result = model.transcribe(audio.flatten(), language="bg")
-# print("Transcription:", result["text"])
 
 
 import keyboard
