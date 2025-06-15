@@ -5,4 +5,3 @@ class Hand:
         self.middle = servos[2]
         self.index = servos[3]
         self.thumb = servos[4]
-

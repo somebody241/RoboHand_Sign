@@ -1,5 +1,4 @@
 from pyfirmata import Arduino
-import time
 
 from sign_letters import *
 
@@ -17,10 +16,8 @@ left_middle = board.get_pin("d:9:s")
 left_index = board.get_pin("d:12:s")
 left_thumb = board.get_pin("d:10:s")
 
-right_hand = Hand([right_pinky, right_ring, right_middle,
-              right_index, right_thumb])
+right_hand = Hand([right_pinky, right_ring, right_middle, right_index, right_thumb])
 
-left_hand = Hand([left_pinky, left_ring, left_middle,
-              left_index, left_thumb])
+left_hand = Hand([left_pinky, left_ring, left_middle, left_index, left_thumb])
 
 board.exit()
