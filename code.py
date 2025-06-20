@@ -20,4 +20,4 @@ right_hand = Hand([right_pinky, right_ring, right_middle, right_index, right_thu
 
 left_hand = Hand([left_pinky, left_ring, left_middle, left_index, left_thumb])
 
-board.exit()
+# board.exit()
