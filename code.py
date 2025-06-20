@@ -2,7 +2,8 @@ from pyfirmata import Arduino
 
 from sign_letters import *
 
-board = Arduino('/dev/cu.usbmodem1101')
+# board = Arduino('/dev/cu.usbmodem1101')
+# board = Arduino('COM7')
 
 right_pinky = board.get_pin("d:2:s")
 right_ring = board.get_pin("d:4:s")
