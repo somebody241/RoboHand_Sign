@@ -1,3 +1,5 @@
+from time import sleep
+
 import whisper
 import sounddevice as sd
 import numpy as np
@@ -60,4 +62,5 @@ for i in arr:
     else:
         map.table['stop'](rh)
         map.table['stop_left'](lh)
+    sleep(0.2)
 board.exit()
