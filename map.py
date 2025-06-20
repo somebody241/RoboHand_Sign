@@ -1,5 +1,4 @@
 import sign_letters
-from hand import Hand
 import code
 
 table = dict()
