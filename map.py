@@ -2,6 +2,8 @@ import sign_letters
 import code
 
 table = dict()
+table['stop'] = sign_letters.sign_stop
+table['stop_left'] = sign_letters.sign_stop_left
 table['а'] = sign_letters.sign_a
 table['б'] = sign_letters.sign_b
 table['в'] = sign_letters.sign_v

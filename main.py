@@ -35,4 +35,4 @@ while True:
     if keyboard.is_pressed("a"):
         break
 
-code.board.close()
+code.board.exit()
