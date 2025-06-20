@@ -1,7 +1,6 @@
 import whisper
 import sounddevice as sd
 import numpy as np
-import keyboard
 import map
 import code
 
