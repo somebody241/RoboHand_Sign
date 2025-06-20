@@ -17,23 +17,18 @@ print("ESC to exit")
 
 
 while True:
-    try:
-        while True:
-            if running:
-                audio = sd.rec(samplerate=sample_rate, channels=1, dtype=np.float32, frames=48000)
-            else:
-                sd.stop()
-                result = model.transcribe(audio.flatten(), language="bg")
-                print("result: "+result)
-                arr = list(result)
-                if set(arr).issubset(alphabet):
-                    for i in arr:
-                        print(map.table(i))
-            if keyboard.is_pressed('space'):
-                running = not running
-    except KeyboardInterrupt:
-        print("Program interrupted.")
-    if keyboard.is_pressed('esc'):
+    if running:
+        audio = sd.rec(samplerate=sample_rate, channels=1, dtype=np.float32, frames=48000)
+    else:
+        sd.stop()
+        result = model.transcribe(audio.flatten(), language="bg")
+        arr = list(result)
+        print("result: " + str(arr))
+        if set(arr).issubset(alphabet):
+            for i in arr:
+                print(map.table(i))
+    if keyboard.is_pressed('space'):
+        running = not running
+    if keyboard.is_pressed("a"):
         break
-
 code.board.close()
