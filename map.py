@@ -2,9 +2,6 @@ import sign_letters
 from hand import Hand
 import code
 
-rh = code.right_hand
-lh = code.left_hand
-
 table = dict()
 table['а'] = sign_letters.sign_a
 table['б'] = sign_letters.sign_b

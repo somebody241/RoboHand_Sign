@@ -7,6 +7,7 @@ import code
 
 alphabet = ['а', 'б', 'в', 'г', 'е', 'и', 'л', 'м', 'н', 'о', 'п', 'р', 'т', 'у', 'х', 'ц', 'ч', 'ш', 'ю']
 
+left_hand_letters = ['л', 'м', 'п', 'т']
 
 model = whisper.load_model("base")
 sample_rate = 16000
@@ -15,6 +16,8 @@ running = True
 print("SPACE to start/stop")
 print("ESC to exit")
 
+rh = code.right_hand
+lh = code.left_hand
 
 while True:
     try:
@@ -28,7 +31,10 @@ while True:
                 arr = list(result)
                 if set(arr).issubset(alphabet):
                     for i in arr:
-                        print(map.table(i))
+                        if i in left_hand_letters:
+                            map.table[i](lh)
+                        else:
+                            map.table[i](rh)
             if keyboard.is_pressed('space'):
                 running = not running
     except KeyboardInterrupt:
