@@ -15,20 +15,11 @@ running = True
 print("SPACE to start/stop")
 print("ESC to exit")
 
-
-while True:
-    if running:
-        audio = sd.rec(samplerate=sample_rate, channels=1, dtype=np.float32, frames=48000)
-    else:
-        sd.stop()
-        result = model.transcribe(audio.flatten(), language="bg")
-        arr = list(result)
-        print("result: " + str(arr))
-        if set(arr).issubset(alphabet):
-            for i in arr:
-                print(map.table(i))
-    if keyboard.is_pressed('space'):
-        running = not running
-    if keyboard.is_pressed("a"):
-        break
+audio = sd.rec(samplerate=sample_rate, channels=1, dtype=np.float32, frames=48000)
+result = model.transcribe(audio.flatten(), language="bg")
+arr = list(result)
+print("result: " + str(arr))
+if set(arr).issubset(alphabet):
+    for i in arr:
+        map.table(i)
 code.board.close()
